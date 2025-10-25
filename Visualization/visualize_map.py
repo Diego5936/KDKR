@@ -1,6 +1,7 @@
 import pygame
 import numpy as np
 from shapely import wkt
+import os
 
 # --- Constants ---
 WINDOW_SIZE = (1000, 800)
@@ -14,7 +15,7 @@ POINTS_RADIUS = 2
 SPECIAL_RADIUS = 4
 
 # --- File Paths ---
-DATA_DIR = "../Data"
+DATA_DIR = os.path.join(os.path.dirname(__file__), "..", "Data")
 PATH_POINTS = f"{DATA_DIR}/points_lat_long.npy"
 PATH_ASSETS = f"{DATA_DIR}/asset_indexes.npy"
 PATH_PHOTOS = f"{DATA_DIR}/photo_indexes.npy"
