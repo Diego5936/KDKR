@@ -4,7 +4,7 @@ from shapely import wkt
 import os
 
 # --- Constants ---
-WINDOW_SIZE = (1000, 800)
+WINDOW_SIZE = (750, 600)
 BACKGROUND_COLOR = (240, 240, 255)
 POLYGON_COLOR = (100, 100, 100)
 ALL_POINTS_COLOR = (180, 180, 180)
