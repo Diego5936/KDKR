@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KDKR Data Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>📊 KDKR Analytics Dashboard</h1>
+    <p>Static layout preview — you’ll later fill this with real NumPy data.</p>
+  </header>
+
+  <!-- Summary cards -->
+  <section class="cards">
+    <div class="card">
+      <h2>Mean</h2>
+      <p>23.45</p>
+    </div>
+    <div class="card">
+      <h2>Standard Deviation</h2>
+      <p>4.17</p>
+    </div>
+    <div class="card">
+      <h2>Max Value</h2>
+      <p>78.9</p>
+    </div>
+    <div class="card">
+      <h2>Min Value</h2>
+      <p>3.1</p>
+    </div>
+  </section>
+
+  <!-- Chart placeholder -->
+  <section class="chart">
+    <h2>Data Visualization</h2>
+    <div class="chart-box">
+      <p>(Chart goes here — you’ll plug in Matplotlib or Plotly later!)</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Built with Flask + Jinja2 | © 2025 KDKR Analytics</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
