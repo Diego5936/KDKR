@@ -5,7 +5,7 @@ from shapely import wkt
 
 base_dir = Path(__file__).resolve().parent
 
-filepath = base_dir / "data" / "polygon_lon_lat.wkt"
+filepath = base_dir / ".." / "Data" / "polygon_lon_lat.wkt"
 
 # visualize the long and lat of the allowed flight region
 
