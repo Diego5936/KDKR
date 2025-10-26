@@ -32,18 +32,36 @@ header p {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  padding: 30px;
+  padding: 20px;
+  margin-bottom: -50px;
 }
 
 .card {
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 220px;
+  width: 200px;
   text-align: center;
   padding: 20px;
   transition: transform 0.2s ease;
 }
+
+.text-blurb {
+  width: 80%;
+  max-width: 700px;
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #2d3436;
+}
+
 
 .card:hover {
   transform: translateY(-5px);
@@ -51,12 +69,12 @@ header p {
 
 .card h2 {
   color: #0984e3;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #2d3436;
 }
@@ -78,6 +96,7 @@ header p {
   align-items: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
 .middle-container {
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
