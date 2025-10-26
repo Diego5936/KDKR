@@ -1,6 +1,6 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #0e1d5f, #036bbf, #20ec61);
+  background: linear-gradient(135deg, #051142, #036bbf, #44d672);
   min-height: 100vh;
   margin: 0;
   margin-bottom: 3%;
@@ -92,11 +92,24 @@ header p {
 
 }
 
-.container{
-      display: flex; 
-      justify-content: space-around;
-      align-items: center; 
-      gap: 20px; 
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.left-buttons-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.middle-column {
+  flex: 1;
+}
+
+.right-column {
+  width: 600px; /* keep your static map container width */
 }
 
 
