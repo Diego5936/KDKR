@@ -1,6 +1,6 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #1b3090, #37fd76);
+  background: linear-gradient(135deg, #0e1d5f, #036bbf, #20ec61);
   min-height: 100vh;
   margin: 0;
   margin-bottom: 3%;
@@ -19,7 +19,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 header p {
@@ -101,15 +101,16 @@ header p {
 
 
 .rounded-btn {
-  background-color: #007bff;     
+  background-color: #367ecc;     
   color: white;
   border: none;
-  border-radius: 25px;           
-  padding: 12px 24px;
-  margin-bottom: 25px;
+  border-radius: 10px;           
+  padding: 10px 24px;
+  margin-bottom: 28px;
+  margin-left: 10px;
   font-size: 16px;
   font-weight: 500;
-  height: 44px;
+  height: 45px;
   width: 150px;
   display: block;
   cursor: pointer;
