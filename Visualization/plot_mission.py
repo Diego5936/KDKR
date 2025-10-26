@@ -2,37 +2,43 @@ from typing import Optional, Sequence
 import numpy as np
 import matplotlib.pyplot as plt
 
+"""""
+Plots a single mission
+Given: (lon, lat) points as array | Sequence of indices mission route | depot index
+       Title (optional) | save path (optional) | show boolean
+"""
 def plot_single_mission(
     points_lon_lat: np.ndarray,
-    mission_nodes_global: Sequence[int],
+    mission_nodes: Sequence[int],
     depot_idx: int,
     title: Optional[str] = None,
     save_path: Optional[str] = None,
     show: bool = True,
 ):
-    if len(mission_nodes_global) < 2:
+    if len(mission_nodes) < 2:
         raise ValueError("Mission must have at least depot->depot")
 
     pts = points_lon_lat
-    path = np.array(mission_nodes_global, dtype=int)
+    path = np.array(mission_nodes, dtype=int)
 
-    # Plot points
+    # Plot all points
     plt.figure(figsize=(8, 7))
-    plt.scatter(pts[:, 0], pts[:, 1], s=2, alpha=0.15, label="all waypoints")
+    plt.scatter(pts[:, 0], pts[:, 1], s=2, alpha=0.15, label="All waypoints")
 
-    # Mission polyline
+    # Mission path
     xs = pts[path, 0]
     ys = pts[path, 1]
-    plt.plot(xs, ys, linewidth=1.5, label="mission path")
+    plt.plot(xs, ys, linewidth=1.5, label="Mission path")
 
-    # Mark depot
-    plt.scatter([pts[depot_idx, 0]], [pts[depot_idx, 1]], s=60, c="red", label="depot")
+    # Depot
+    plt.scatter([pts[depot_idx, 0]], [pts[depot_idx, 1]], s=60, c="green", label="Depot")
 
-    # Mark mission stops (excluding depot ends)
+    # Mark mission middle stops
     if len(path) > 2:
         mid = path[1:-1]
-        plt.scatter(pts[mid, 0], pts[mid, 1], s=10, label="mission waypoints")
+        plt.scatter(pts[mid, 0], pts[mid, 1], s=10, label="Mission waypoints")
 
+    # Labels
     plt.xlabel("Longitude")
     plt.ylabel("Latitude")
     plt.title(title or "Mission")
