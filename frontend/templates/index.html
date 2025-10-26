@@ -7,35 +7,148 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <h1>📊 KDKR Flight Analytics </h1>
+    <h1>KDKR Flight Analytics</h1>
   </header>
 
- <div class="middle-container"> 
+  <div class="container">
+  <!-- Left Column: Buttons -->
+  <div class="left-buttons-column">
+    <button class="rounded-btn active" data-tab="overview">Overview</button>
+    <button class="rounded-btn" data-tab="mission1">Mission 1</button>
+    <button class="rounded-btn" data-tab="mission2">Mission 2</button>
+    <button class="rounded-btn" data-tab="mission3">Mission 3</button>
+    <button class="rounded-btn" data-tab="mission4">Mission 4</button>
+    <button class="rounded-btn" data-tab="mission5">Mission 5</button>
+    <button class="rounded-btn" data-tab="mission6">Mission 6</button>
+    <button class="rounded-btn" data-tab="mission7">Mission 7</button>
+    <button class="rounded-btn" data-tab="mission8">Mission 8</button>
+  </div>
 
-  <!-- Summary cards -->
-  <section class="cards">
-    <div class="card">
-      <h2>Battery Life</h2>
-      <p>90%</p>
-    </div>
-    <div class="card">
-      <h2>Coverage of waypoints</h2>
-      <p>45% covered</p>
-    </div>
-  </section>
+  <!-- Middle Column: Tab Content -->
+  <div class="middle-column">
+    <div class="middle-container tab-content" id="overview">
+      <h2 style="text-align: center;">Overview</h2>
+      <section class="cards">
+        <div class="card"><h2>Coverage of waypoints</h2><p>45% covered</p></div>
+        <div class="card"><h2>Total Distance</h2><p>1000m</p></div>
+      </section>
 
+      <section class="chart">
+        <h2>Chart</h2>
+        <div class="chart-box">(chart goes here)</div>
+      </section>
 
-  <!-- Chart placeholder -->
-  <section class="chart">
-    <h2>Pretend the map goes here</h2>
-    <div class="chart-box">
-      <p>(Chart goes here — you’ll plug in Matplotlib or Plotly later!)</p>
     </div>
-  </section>
-     </div>
+
+    <div class="middle-container tab-content" id="mission1">
+      <h2>Mission 1</h2>
+      <section class="cards">
+        <div class="card"><h2>Status</h2><p>In Progress</p></div>
+        <div class="card"><h2>Waypoints Covered</h2><p>30%</p></div>
+      </section>
+
+    </div>
+
+    <div class="middle-container tab-content" id="mission2">
+      <h2>Mission 2</h2>
+      <section class="cards">
+        <div class="card"><h2>Status</h2><p>Completed</p></div>
+        <div class="card"><h2>Waypoints Covered</h2><p>100%</p></div>
+      </section>
+
+    </div>
+
+    <div class="middle-container tab-content" id="mission3">
+      <h2>Mission 3</h2>
+      <section class="cards">
+        <div class="card"><h2>Status</h2><p>In Progress</p></div>
+        <div class="card"><h2>Waypoints Covered</h2><p>30%</p></div>
+      </section>
+
+    </div>
+
+    <div class="middle-container tab-content" id="mission4">
+      <h2>Mission 4</h2>
+      <section class="cards">
+        <div class="card"><h2>Status</h2><p>In Progress</p></div>
+        <div class="card"><h2>Waypoints Covered</h2><p>30%</p></div>
+      </section>
+
+    </div>
+
+    <div class="middle-container tab-content" id="mission5">
+      <h2>Mission 5</h2>
+      <section class="cards">
+        <div class="card"><h2>Status</h2><p>In Progress</p></div>
+        <div class="card"><h2>Waypoints Covered</h2><p>30%</p></div>
+      </section>
+
+    </div>
+
+    <div class="middle-container tab-content" id="mission6">
+      <h2>Mission 6</h2>
+      <section class="cards">
+        <div class="card"><h2>Status</h2><p>In Progress</p></div>
+        <div class="card"><h2>Waypoints Covered</h2><p>30%</p></div>
+      </section>
+
+    </div>
+
+    <div class="middle-container tab-content" id="mission7">
+      <h2>Mission 7</h2>
+      <section class="cards">
+        <div class="card"><h2>Status</h2><p>In Progress</p></div>
+        <div class="card"><h2>Waypoints Covered</h2><p>30%</p></div>
+      </section>
+
+    </div>
+
+    <div class="middle-container tab-content" id="mission8">
+      <h2>Mission 8</h2>
+      <section class="cards">
+        <div class="card"><h2>Status</h2><p>In Progress</p></div>
+        <div class="card"><h2>Waypoints Covered</h2><p>30%</p></div>
+      </section>
+
+    </div>
+
+    <!-- Add missions 3-8 similarly -->
+  </div>
+
+  <!-- Right Column: Static Map -->
+  <div class="right-column middle-container">
+    <h2>Static Map / Summary</h2>
+    <section class="chart">
+      <h2>Pretend the map goes here</h2>
+      <div class="chart-box">(Chart goes here — Matplotlib or Plotly later)</div>
+    </section>
+  </div>
+</div>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script>
+    // Tab switching JS
+    const buttons = document.querySelectorAll('.rounded-btn');
+    const tabContainers = document.querySelectorAll('.tab-content');
+
+    // Hide all except the first tab
+    tabContainers.forEach((c, i) => {
+      if (i !== 0) c.style.display = 'none';
+    });
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-tab');
+
+        tabContainers.forEach(c => {
+          c.style.display = c.id === tab ? 'block' : 'none';
+        });
+
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
