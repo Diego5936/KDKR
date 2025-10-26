@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>KDKR Sim Demo</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="../src/styles.css">
+    <link rel="stylesheet" href="/sim/styles.css">
     <style> 
       body { font-family: system-ui, sans-serif; padding: 20px; } 
       #host { max-width: 900px; margin: 0 auto; } 
@@ -16,15 +16,7 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script type="module">
-      import KDKRSim from '../src/index.js';
-
-      const host = document.getElementById('host');
-      const { controls } = KDKRSim.mount(host, {
-        speedMps: 12,
-        simSpeed: 1,
-      });
-
-      KDKRSim.on('telemetry', tlm => {});
+      import '/sim/index.js';
     </script>
   </body>
 </html>
