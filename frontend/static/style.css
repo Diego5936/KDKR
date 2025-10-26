@@ -1,6 +1,6 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #1b3090, #37fd76);
   min-height: 100vh;
   margin: 0;
   margin-bottom: 3%;
@@ -89,8 +89,14 @@ header p {
     overflow: hidden;
     margin: auto;
     flex: fit-content;
-    
 
+}
+
+.container{
+      display: flex; 
+      justify-content: space-around;
+      align-items: center; 
+      gap: 20px; 
 }
 
 
