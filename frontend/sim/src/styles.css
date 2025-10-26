@@ -1,0 +1,5 @@
+.kdkr-sim { position: relative; width: 100%; max-width: 900px; height: 420px; }
+.kdkr-map { width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.kdkr-hud { position: absolute; left: 12px; bottom: 12px; background: rgba(255,255,255,0.85);
+            padding: 8px 10px; border-radius: 8px; font-size: 0.9rem; }
+.kdkr-hud div { line-height: 1.4; }
