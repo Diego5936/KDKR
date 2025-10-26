@@ -1,13 +1,13 @@
 import { store } from './store.js';
 import { Engine } from './engine.js';
-import * as MapMod from './map.js';
+import map, * as MapMod from './map.js';
 const { initMap } = MapMod;
 
 const DEFAULT_WPS = [
   [28.6022, -81.2002, 50],
   [28.6028, -81.1990, 50],
   [28.6035, -81.2005, 50],
-  [28.6026, -81.2012, 50]
+  [28.6026, -81.2012, 50],
 ];
 
 function makeHud(root) {
@@ -112,15 +112,69 @@ window.KDKRSim = {
 };
 export default window.KDKRSim;
 
-document.addEventListener('DOMContentLoaded', () => {
+// Fetch mission data
+async function loadMissionView(id = 1) {
+  const res = await fetch(`/mission_view/${id}`);
+  if (!res.ok) 
+    throw new Error(`Mission view ${id} not found`);
+  return await res.json();
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
   console.log('[KDKRSim] index.js loaded, trying to mount');
   const host = document.getElementById('host');
-  if (!host) {
-    console.warn('[KDKRSim] #host not found');
-    return;
+  if (!host) return;
+
+  try {
+    const view = await loadMissionView(1);
+    const waypoints = view.path.length ? view.path : DEFAULT_WPS;
+
+    const root = document.createElement('div');
+    root.className = 'kdkr-sim';
+    const mapDiv = document.createElement('div');
+    mapDiv.className = 'kdkr-map';
+    mapDiv.id = 'kdkr-map';
+    mapDiv.style.width = '100%';
+    mapDiv.style.height = '420px';
+    root.appendChild(mapDiv);
+    host.innerHTML = '';
+    host.appendChild(root);
+
+    const center = [waypoints[0][0], waypoints[0][1]];
+
+    const viewMap = initMap({
+      containerId: 'kdkr-map',
+      center,
+      waypoints,
+      allWaypoints: view.all_waypoints,
+      visitedIds: view.visited_ids,
+      path: view.path,
+    });
+
+    const hud = makeHud(root);
+    const eng = new Engine({
+      missionId: `mission-${view.mission_id}`,  // <-- fix
+      waypoints,
+      speedMps: 12,
+      simSpeed: 1,
+    });
+
+    // Animation Loop
+    let rafId = null, last = performance.now();
+    function frame() {
+      const now = performance.now();
+      const dt = (now - last)/1000;
+      last = now;
+      const tlm = eng.step(dt);
+      store.set(tlm);
+      hud.update(tlm);
+      viewMap.setPose(tlm.drone.lat, tlm.drone.lon, tlm.drone.heading_deg);
+      if (tlm.state === 'RUNNING')
+        rafId = requestAnimationFrame(frame);
+    }
+    rafId = requestAnimationFrame(frame);
+
+  } catch (error) {
+    console.error('Failed to load mission:', error);
   }
-  window.KDKRSim.mount(host, {
-    speedMps: 12,
-    simSpeed: 1,
-  });
 });
