@@ -163,4 +163,12 @@ header p {
   box-shadow: 0 3px 6px rgba(0, 123, 255, 0.3);
 }
 
+/* Smooth fade when changing mission image */
+#mission-image {
+  transition: opacity 0.2s ease-in-out;
+}
+
+#mission-image.fade-out {
+  opacity: 0;
+}
 

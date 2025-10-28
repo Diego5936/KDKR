@@ -134,13 +134,12 @@
   </div>
 
   <!-- Map -->
-  <div class="right-column middle-container">
-    <h1 style = "text-align: center">Static Map / Summary</h1>
-    <section class="chart">
-      <h2>Pretend the map goes here</h2>
-      <div class="chart-box">(Chart goes here — Matplotlib or Plotly later)</div>
-    </section>
-  </div>
+<div class="right-column middle-container">
+  <h1 style="text-align: center">Static Map / Summary</h1>
+  <section class="chart">
+    <img id="mission-image" src="/static/mission_0.png" alt="Mission Visualization" style="width: 100%; border-radius: 10px;">
+  </section>
+  <p style = "text-align: center">Missions titles for the chart are zero indexed compared to the tabs which are one indexed</p>
 </div>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
