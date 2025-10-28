@@ -57,7 +57,7 @@ KDKR/
 
 --- 
 
-## Installation
+## 🧮 Installation
 
 ### Requirements
 
@@ -74,7 +74,7 @@ pip install shapely
 
 ---
 
-## Usage
+## 💻 Usage
 
 ### 1. Route Optimization
 
@@ -165,7 +165,7 @@ Options:
 
 --- 
 
-## Algorithm Details
+## 🔬 Algorithm Details
 
 ### Route Optimization
 
@@ -188,7 +188,7 @@ NUM_DRONES_MAX = 200           # Maximum drones available
 
 ---
 
-## Data Format
+## 🧠 Data Format
 
 ### Input Files (all in `Data/`)
 
@@ -206,7 +206,7 @@ NUM_DRONES_MAX = 200           # Maximum drones available
 
 --- 
 
-## Troubleshooting
+## 🧰 Troubleshooting
 
 ### "No solution found"
 
@@ -259,7 +259,7 @@ search_parameters.local_search_metaheuristic = \
 
 ---
 
-## API Reference
+## 🧾 API Reference
 
 ### RouteFinder Class
 
