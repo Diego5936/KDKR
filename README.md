@@ -1,16 +1,17 @@
-# KDKR
-Knowledge Driven Kinetic Routing
+# 🚁 KDKR - Knowledge Driven Kinetic Routing
+For the **NextEra Energy Infrastructure Optimization Challenge** at **KnightHacks VIII (2025)**, our team set out to solve a real-world problem: how to plan efficient autonomous drone missions for infrastructure inspection.
 
+We wanted to design a system that doesn’t just send drones flying randomly, but thinks intelligently about energy, distance, and coverage.
 
-# KDKR - Knowledge Driven Kinetic Routing
+---
 
-A drone route optimization system for automated infrastructure inspection using Google OR-Tools and visualization tools.
+## 🚀 What It Does
 
-## Overview
+**KDKR** is a drone **route optimization system** that uses **Google OR-Tools**, **Python**, and **Vehicle Routing Problem (VRP)** algorithms to efficiently route drones to inspection points while respecting battery constraints and minimizing the number of required flights.
 
-KDKR (Knowledge Driven Kinetic Routing) optimizes multi-drone mission planning for infrastructure inspection. The system uses Vehicle Routing Problem (VRP) algorithms to efficiently route drones to inspection points while respecting battery constraints and minimizing the number of required flights.
+---
 
-## Features
+## 🧭 Features
 
 - **Multi-drone route optimization** using Google OR-Tools
 - **Battery capacity constraints** for realistic flight planning
@@ -19,11 +20,22 @@ KDKR (Knowledge Driven Kinetic Routing) optimizes multi-drone mission planning f
 - **Flexible waypoint types**: assets, photo locations, and general waypoints
 - **Optimized path reconstruction** using predecessor matrices
 
-## Project Structure
+---
+
+## ⚙️ How We Built It
+- *Python 3.10*+ – Core environment
+- *Google OR-Tools* – Route optimization and constraint solving
+- *NumPy + Shapely* – Data handling and geospatial geometry
+- *Matplotlib* – Route visualization
+- *Pygame* – Real-time drone simulation
+
+---
+
+## 🧩 Project Structure
 
 ```
 KDKR/
-├── Data/                          # Data files (not in repo)
+├── Data/                         # Data files (not in repo)
 │   ├── asset_indexes.npy         # Asset waypoint indices
 │   ├── photo_indexes.npy         # Photo location indices
 │   ├── waypoint_indexes.npy      # General waypoint indices
@@ -43,6 +55,8 @@ KDKR/
 └── README.md
 ```
 
+--- 
+
 ## Installation
 
 ### Requirements
@@ -57,6 +71,8 @@ pip install shapely
 
 ### Python Version
 - Python 3.8 or higher recommended
+
+---
 
 ## Usage
 
@@ -83,7 +99,7 @@ if solution:
     route_finder.exportRoutesNPY("../Data/routes.npy")
 ```
 
-### 2. Visualize Routes
+### 2. Visualize Missions
 
 Plot individual mission routes:
 
@@ -126,6 +142,8 @@ cd Visualization
 python simulation.py
 ```
 
+---
+
 ## Configuration
 
 ### Battery Capacity
@@ -144,6 +162,8 @@ Options:
 - `SAVINGS` - Best for VRP (recommended)
 - `PATH_CHEAPEST_ARC` - Better for single-vehicle TSP
 - `AUTOMATIC` - Let OR-Tools decide
+
+--- 
 
 ## Algorithm Details
 
@@ -166,6 +186,8 @@ VEHICLE_FIXED_COST = 5000      # Cost to use each additional drone
 NUM_DRONES_MAX = 200           # Maximum drones available
 ```
 
+---
+
 ## Data Format
 
 ### Input Files (all in `Data/`)
@@ -181,6 +203,8 @@ NUM_DRONES_MAX = 200           # Maximum drones available
 ### Output Files
 
 - **routes.npy**: List of routes, where each route is a list of waypoint indices
+
+--- 
 
 ## Troubleshooting
 
@@ -233,6 +257,8 @@ search_parameters.local_search_metaheuristic = \
     routing_enums_pb2.LocalSearchMetaheuristic.AUTOMATIC
 ```
 
+---
+
 ## API Reference
 
 ### RouteFinder Class
@@ -273,11 +299,8 @@ def plot_single_mission(
 )
 ```
 
-## Performance Tips
+---
 
-1. **Pre-compute distance matrix** for faster optimization
-2. **Use predecessor matrix** for efficient path reconstruction
-3. **Start with warm solutions** by loading previous routes
-4. **Adjust vehicle fixed cost** to balance drone count vs route length
-5. **Use solution limits** for quick feasibility checks
-f
+## 👥 Team
+Built with 💡 and ☕ at *KnightHacks VIII Hackathon 2025* by
+Diego Pedroza, Ricardo Metral, Katelyn Campbell, and Kevin Muniz
